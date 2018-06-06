@@ -9,6 +9,9 @@ network:
   name: production-vpc
   subnetwork_name: europe-west1-internal-prod 
  
+beta_settings:
+  cloud_sql_instances: "lemonde-app-123:europe-west1:lemonde-sql-prod"
+ 
 threadsafe: true
 automatic_scaling:
   min_num_instances: 1
