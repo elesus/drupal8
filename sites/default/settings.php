@@ -790,8 +790,9 @@ $databases['default']['default'] = array (
   'username' => 'lemondeuser',
   'password' => '12345678',
   'prefix' => '',
-  'host' => '35.195.119.248',
-  'port' => '3306',
+  #'host' => '35.195.119.248',
+  #'port' => '3306',
+  'unix_socket' => '/cloudsql/lemonde-app-123:europe-west1:lemonde-sql-prod',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
