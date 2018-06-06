@@ -18,3 +18,8 @@ automatic_scaling:
   max_num_instances: 3
   cpu_utilization:
     target_utilization: 0.5
+    
+resources:
+  cpu: 2
+  memory_gb: 1
+  disk_size_gb: 1
