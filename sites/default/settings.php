@@ -781,6 +781,11 @@ $settings['entity_update_batch_size'] = 50;
  *
  * Keep this code block at the end of this file to take full effect.
  */
+
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+#$settings['cache']['bins']['render'] = 'Memcache';
+#$settings['cache']['bins']['dynamic_page_cache'] = 'Memcache';
 #
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
