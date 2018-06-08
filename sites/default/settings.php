@@ -784,8 +784,8 @@ $settings['entity_update_batch_size'] = 50;
 
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
-#$settings['cache']['bins']['render'] = 'Memcache';
-#$settings['cache']['bins']['dynamic_page_cache'] = 'Memcache';
+$settings['memcache']['extension'] = 'Memcached';
+
 #
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
@@ -801,5 +801,23 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
+$settings['memcache']['key_prefix'] = '';
+$server = 'localhost:11211';
+if (getenv('USE_GAE_MEMCACHE')) {
+    $host = getenv('GAE_MEMCACHE_HOST') ?: 'localhost';
+    $port = getenv('GAE_MEMCACHE_PORT') ?: '11211';
+    $server = $host . ":" . $port;
+}
+$settings['memcache']['servers'] = [$server  => 'default'];
+if (isset($settings['memcache']['servers'])) {
+    // Memcache settings
+    $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
+    $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
+    $settings['cache']['bins']['config'] = 'cache.backend.memcache';
+    // Use memcache as the default bin
+    $settings['cache']['default'] = 'cache.backend.memcache';
+}
+
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_IgLQXfCBnVbADL3jubaRqPurFc4N_CnVnyPbPHp6PSqbkL32MGPJAQYkhBQwsft6grG00yirAw/sync';
