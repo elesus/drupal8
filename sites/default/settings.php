@@ -821,7 +821,7 @@ $databases['default']['default'] = array (
 
 $settings['redis.connection']['interface'] = 'PhpRedis'; // Can be "Predis".
 $settings['redis.connection']['host']      = '10.10.0.3';  // Your Redis instance hostname.
-#$settings['cache']['default'] = 'cache.backend.redis';
+$settings['cache']['default'] = 'cache.backend.redis';
 
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_IgLQXfCBnVbADL3jubaRqPurFc4N_CnVnyPbPHp6PSqbkL32MGPJAQYkhBQwsft6grG00yirAw/sync';
