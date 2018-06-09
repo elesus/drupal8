@@ -1,0 +1,7 @@
+dispatch:
+  # Default service serves simple hostname request.
+  - url: "news.alisa.lt/"
+    service: default
+    
+  - url: "lemonde-app-123.appspot.com/"
+    service: default
